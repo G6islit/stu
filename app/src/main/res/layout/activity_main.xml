@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <Button android:id="@+id/btnName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ورود نام کاربر"
+            android:layout_marginBottom="12dp" />
+
+        <Button android:id="@+id/btnWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="وب‌ویو (گوگل)"
+            android:layout_marginBottom="12dp" />
+
+        <Button android:id="@+id/btnGpa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="محاسبه معدل"
+            android:layout_marginBottom="12dp" />
+
+        <Button android:id="@+id/btnLearn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="محتوای آموزشی (ویدیو و صدا)"
+            android:layout_marginBottom="12dp" />
+
+        <Button android:id="@+id/btnProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نمایش پروفایل کاربر" />
+    </LinearLayout>
+</ScrollView>

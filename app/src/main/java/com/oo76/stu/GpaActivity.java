@@ -1,54 +1,34 @@
 package com.oo76.stu;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import androidx.appcompat.app.AlertDialog;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GpaActivity extends AppCompatActivity {
-    EditText grade1, unit1, grade2, unit2, grade3, unit3;
-    Button btnCalculate;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpa);
 
-        grade1 = findViewById(R.id.grade1);
-        unit1 = findViewById(R.id.unit1);
-        grade2 = findViewById(R.id.grade2);
-        unit2 = findViewById(R.id.unit2);
-        grade3 = findViewById(R.id.grade3);
-        unit3 = findViewById(R.id.unit3);
-        btnCalculate = findViewById(R.id.btnCalculate);
+        EditText score1 = findViewById(R.id.score1);
+        EditText score2 = findViewById(R.id.score2);
+        EditText score3 = findViewById(R.id.score3);
+        Button btnCalculate = findViewById(R.id.btnCalculate);
+        TextView result = findViewById(R.id.resultText);
 
         btnCalculate.setOnClickListener(v -> {
             try {
-                double g1 = Double.parseDouble(grade1.getText().toString());
-                int u1 = Integer.parseInt(unit1.getText().toString());
-                double g2 = Double.parseDouble(grade2.getText().toString());
-                int u2 = Integer.parseInt(unit2.getText().toString());
-                double g3 = Double.parseDouble(grade3.getText().toString());
-                int u3 = Integer.parseInt(unit3.getText().toString());
+                float s1 = Float.parseFloat(score1.getText().toString());
+                float s2 = Float.parseFloat(score2.getText().toString());
+                float s3 = Float.parseFloat(score3.getText().toString());
 
-                double total = (g1 * u1 + g2 * u2 + g3 * u3);
-                int units = u1 + u2 + u3;
-                double gpa = total / units;
-
-                new AlertDialog.Builder(GpaActivity.this)
-                        .setTitle("معدل نهایی")
-                        .setMessage("معدل شما: " + String.format("%.2f", gpa))
-                        .setPositiveButton("باشه", null)
-                        .show();
-
+                float avg = (s1 + s2 + s3) / 3;
+                result.setText("معدل شما: " + avg);
             } catch (Exception e) {
-                new AlertDialog.Builder(GpaActivity.this)
-                        .setTitle("خطا")
-                        .setMessage("لطفاً تمام فیلدها را درست وارد کنید")
-                        .setPositiveButton("باشه", null)
-                        .show();
+                Toast.makeText(this, "لطفاً تمام نمرات را به درستی وارد کنید", Toast.LENGTH_SHORT).show();
             }
         });
     }

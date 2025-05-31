@@ -1,6 +1,7 @@
 package com.oo76.stu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,16 +15,26 @@ public class MainActivity extends AppCompatActivity {
         Button btnName = findViewById(R.id.btnName);
         Button btnWeb = findViewById(R.id.btnWeb);
         Button btnGpa = findViewById(R.id.btnGpa);
-        Button btnLearn = findViewById(R.id.btnLearn);
         Button btnProfile = findViewById(R.id.btnProfile);
+        Button btnAbout = findViewById(R.id.btnAbout);
+        btnAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
 
-        btnName.setOnClickListener(v -> startActivity(new Intent(this, NameInputActivity.class)));
-        btnWeb.setOnClickListener(v -> startActivity(new Intent(this, WebActivity.class)));
-        btnGpa.setOnClickListener(v -> startActivity(new Intent(this, GpaActivity.class)));
-        btnLearn.setOnClickListener(v -> startActivity(new Intent(this, LearningActivity.class)));
+        btnName.setOnClickListener(v ->
+                startActivity(new Intent(this, NameInputActivity.class)));
 
-        Intent intent = new Intent(this, com.oo76.stu.ProfileActivity.class);
-        intent.putExtra("username", "کاربر تست");
-        btnProfile.setOnClickListener(v -> startActivity(intent));
+        btnWeb.setOnClickListener(v ->
+                startActivity(new Intent(this, WebActivity.class)));
+
+        btnGpa.setOnClickListener(v ->
+                startActivity(new Intent(this, GpaActivity.class)));
+
+        btnProfile.setOnClickListener(v -> {
+            SharedPreferences prefs = getSharedPreferences("user", MODE_PRIVATE);
+            String username = prefs.getString("username", "کاربر تست");
+
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("username", username);
+            startActivity(intent);
+        });
     }
 }

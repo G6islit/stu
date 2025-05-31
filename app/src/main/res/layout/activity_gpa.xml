@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
+    <EditText
+        android:id="@+id/score1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="نمره اول"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
 
-        <EditText android:id="@+id/grade1" android:hint="نمره درس ۱" android:inputType="numberDecimal"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
-        <EditText android:id="@+id/unit1" android:hint="واحد درس ۱" android:inputType="number"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/score2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="نمره دوم"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
 
-        <EditText android:id="@+id/grade2" android:hint="نمره درس ۲" android:inputType="numberDecimal"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
-        <EditText android:id="@+id/unit2" android:hint="واحد درس ۲" android:inputType="number"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/score3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="نمره سوم"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
 
-        <EditText android:id="@+id/grade3" android:hint="نمره درس ۳" android:inputType="numberDecimal"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
-        <EditText android:id="@+id/unit3" android:hint="واحد درس ۳" android:inputType="number"
-            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="محاسبه معدل"
+        android:layout_marginBottom="16dp"/>
 
-        <Button android:id="@+id/btnCalculate" android:text="محاسبه معدل"
-            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="معدل شما نمایش داده خواهد شد"
+        android:textSize="16sp"/>
+</LinearLayout>
